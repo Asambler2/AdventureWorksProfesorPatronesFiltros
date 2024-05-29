@@ -58,6 +58,47 @@ namespace AdventureWorks.Controllers
             }
             return View(adventureWorks2016Context);
         }
+        public async Task<IActionResult> IndexEj01()
+        {
+
+            var adventureWorks2016Context = _context.Products.Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.SizeUnitMeasureCodeNavigation).Include(p => p.WeightUnitMeasureCodeNavigation);
+            var consulta = _context.Products;
+
+            ViewBag.titulo = "1. Sacar los productos de color rojo o verde (red or green), ordenados por SafetyStockLevel de forma ascendente para todo aquellos productos que tengan un ListPrice superior a 1.";
+            var elemento1 = _factoria.dameInstancia(EnumeracionEjercicios.Ejercicio3);
+            var consultaFinal1 = (elemento1 as IProductoQuery).dameProductos(consulta);
+            return View(consultaFinal1);
+        }
+        public async Task<IActionResult> IndexEj02()
+        {
+            var adventureWorks2016Context = _context.Products.Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.SizeUnitMeasureCodeNavigation).Include(p => p.WeightUnitMeasureCodeNavigation);
+            var consulta = _context.Products;
+
+            ViewBag.titulo = "2. Sacar los productos de color rojo, ordenados por nombre (name), eliminar los productos de la subcategoria 2 y aquellos que terminen en vocal o en una x.";
+            var elemento2 = _factoria.dameInstancia(EnumeracionEjercicios.Ejercicio3);
+            var consultaFinal2 = (elemento2 as IProductoQuery).dameProductos(consulta);
+            return View(consultaFinal2);
+        }
+        public async Task<IActionResult> IndexEj03()
+        {
+            var adventureWorks2016Context = _context.Products.Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.SizeUnitMeasureCodeNavigation).Include(p => p.WeightUnitMeasureCodeNavigation);
+            var consulta = _context.Products;
+
+            ViewBag.titulo = "3. Sacar los productos ordenados por SellStartDate y luego por Color, quiero sólo aquellos que comiencen por a,b o c o que contengan una e en el nombre(name)";
+            var elemento3 = _factoria.dameInstancia(EnumeracionEjercicios.Ejercicio3);
+            var consultaFina3 = (elemento3 as IProductoQuery).dameProductos(consulta);
+            return View(consultaFina3);
+        }
+        public async Task<IActionResult> IndexEj04()
+        {
+            var adventureWorks2016Context = _context.Products.Include(p => p.ProductModel).Include(p => p.ProductSubcategory).Include(p => p.SizeUnitMeasureCodeNavigation).Include(p => p.WeightUnitMeasureCodeNavigation);
+            var consulta = _context.Products;
+
+            ViewBag.titulo = "4. Crea una nueva consulta con productos que comiencen por a,b ó c, tenga color rojo, verde o azul, tenga un listprice mayor a 2 y este ordenado por nombre";
+            var elemento4 = _factoria.dameInstancia(EnumeracionEjercicios.Ejercicio4);
+            var consultaFina4 = (elemento4 as IProductoQuery).dameProductos(consulta);
+            return View(consultaFina4);
+        }
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
