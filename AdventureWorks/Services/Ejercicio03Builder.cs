@@ -14,9 +14,9 @@ namespace AdventureWorks.Services
             };
             IProductSpecification PorContenido = new NameContieneSpecification()
             {
-                letras = ["A"]
+                letras = ["E"]
             };
-            especificacion = new AndSpecification()
+            especificacion = new OrSpecification()
             {
                 Spec1 = PorInicio,
                 Spec2 = PorContenido
